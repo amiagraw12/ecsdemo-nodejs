@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: test1
+  annotations:
+    argocd.argoproj.io/hook: PostSync 
+spec:
+  ttlSecondsAfterFinished: 100
+  template:
+    spec:
+      containers:
+        - name: curl
+          image: curlimages/curl
+          imagePullPolicy: Always
+          command:
+            - "curl"
+            - "10.97.192.218"
+      restartPolicy: Never
+  backoffLimit: 1
