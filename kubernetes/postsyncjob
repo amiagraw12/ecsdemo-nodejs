@@ -1,15 +1,14 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  generateName: app-slack-notification-
+  name: postsynctestjob
   annotations:
-    argocd.argoproj.io/hook: PostSync
-    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+    argocd.argoproj.io/hook: PostSync    
 spec:
   template:
     spec:
       containers:
-      - name: slack-notification
+      - name: postsync-1
         image: curlimages/curl
         command:
           - "curl"
