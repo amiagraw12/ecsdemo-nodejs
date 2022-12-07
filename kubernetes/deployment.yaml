@@ -2,8 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ecsdemo-nodejs
-  annotations:
-    argocd.argoproj.io/hook: Sync
+# annotations:
+#   argocd.argoproj.io/hook: Sync
   labels:
     app: ecsdemo-nodejs
   namespace: default
